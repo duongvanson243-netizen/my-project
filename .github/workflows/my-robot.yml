@@ -1,21 +1,25 @@
-name: Con Robot Dau Tien Cua DuongVanSon
+name: Trien khai Website tu dong
 on: [push]
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  kiem-tra-code:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Lay code tu kho ve
+      - name: Lay code ve
         uses: actions/checkout@v4
 
-      - name: Chao hoi
-        run: echo "Chao Duong! Robot dang kiem tra code cua ban..."
+      - name: Thiet lap GitHub Pages
+        uses: actions/configure-pages@v4
 
-      - name: Kiem tra file index.html co ton tai khong
-        run: |
-          if [ -f index.html ]; then
-            echo "Thanh cong: File index.html ton tai!"
-          else
-            echo "Loi: Khong tim thay file index.html"
-            exit 1
-          fi
+      - name: Tai code len GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy (Trien khai) trang web
+        uses: actions/deploy-pages@v4
