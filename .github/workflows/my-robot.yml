@@ -1,0 +1,21 @@
+name: Con Robot Dau Tien Cua DuongVanSon
+on: [push]
+
+jobs:
+  kiem-tra-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lay code tu kho ve
+        uses: actions/checkout@v4
+
+      - name: Chao hoi
+        run: echo "Chao Duong! Robot dang kiem tra code cua ban..."
+
+      - name: Kiem tra file index.html co ton tai khong
+        run: |
+          if [ -f index.html ]; then
+            echo "Thanh cong: File index.html ton tai!"
+          else
+            echo "Loi: Khong tim thay file index.html"
+            exit 1
+          fi
