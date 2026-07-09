@@ -1,0 +1,10 @@
+stages:
+  - test
+
+run_test_job:
+  stage: test
+  script:
+    - echo "=== Thu nghiem GitLab Runner tren Windows ==="
+    - pwd
+    - bash --version
+    - echo "=== Pipeline chay thanh cong! ==="
