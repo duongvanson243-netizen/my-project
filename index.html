@@ -3,200 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dương Văn Sơn | Network & Systems Portfolio</title>
+    <title>Dương Văn Sơn | Network Engineer Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate On Scroll (AOS) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#0f172a', /* slate-900 */
-                            card: '#1e293b', /* slate-800 */
-                            accent: '#06b6d4', /* cyan-500 */
-                            text: '#f8fafc' /* slate-50 */
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            accent: '#06b6d4',
+                            accentHover: '#22d3ee'
                         }
                     }
                 }
             }
         }
     </script>
+    <style>
+        /* Tùy biến con trỏ nhấp nháy cho Terminal */
+        .cursor-blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+    </style>
 </head>
-<body class="bg-brand-dark text-slate-300 font-sans antialiased">
+<body class="bg-brand-dark text-slate-300 font-sans antialiased overflow-x-hidden">
 
     <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 w-full bg-brand-dark/90 backdrop-blur-md border-b border-slate-800 z-50">
+    <header class="fixed top-0 left-0 w-full bg-brand-dark/80 backdrop-blur-md border-b border-slate-800/80 z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-white tracking-wider flex items-center gap-2">
-                <i class="fa-solid fa-network-wired text-brand-accent"></i>
+                <i class="fa-solid fa-terminal text-brand-accent"></i>
                 <span>DUONG VAN SON</span>
             </a>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-brand-accent transition">Giới Thiệu</a>
-                <a href="#skills" class="hover:text-brand-accent transition">Công Nghệ & Kỹ Năng</a>
-                <a href="#concepts" class="hover:text-brand-accent transition">Kiến Thức Mạng</a>
+                <a href="#skills" class="hover:text-brand-accent transition">Công Nghệ</a>
+                <a href="#terminal-section" class="hover:text-brand-accent transition">Terminal Tương Tác</a>
                 <a href="#contact" class="hover:text-brand-accent transition">Liên Hệ</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-brand-accent text-xs font-semibold mb-6 animate-pulse">
-                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                Hạ tầng mạng ổn định & Bảo mật
+    <!-- Hero & Interactive Terminal Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center pt-24 px-4 max-w-6xl mx-auto grid lg:grid-cols-12 gap-12">
+        <!-- Cột trái: Giới thiệu -->
+        <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-brand-accent text-xs font-semibold">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 cursor-blink"></span>
+                Connected to local-network successfully
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-                Thiết Kế & Tối Ưu Hóa <br>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+                Xây Dựng & Kiểm Soát <br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                    Hạ Tầng Mạng Máy Tính
+                    Hạ Tầng Hệ Thống Mạng
                 </span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Xin chào, tôi là Dương Văn Sơn. Trang web này chia sẻ về hành trình nghiên cứu, xây dựng hạ tầng kết nối an toàn, liên tục và tối ưu hóa hệ thống máy tính.
+            <p class="text-slate-400 text-base md:text-lg leading-relaxed">
+                Chào mừng bạn đến với không gian công nghệ của Dương Văn Sơn. Tôi chuyên sâu về thiết kế giải pháp kết nối mạng an toàn, ứng dụng ảo hóa Docker và quản trị Linux.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#skills" class="px-8 py-3 rounded-lg bg-cyan-500 text-slate-900 font-semibold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">
-                    Khám phá công nghệ
+            <div class="flex gap-4">
+                <a href="#terminal-section" class="px-6 py-3 rounded-lg bg-cyan-500 text-slate-900 font-semibold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">
+                    Thử gõ Terminal
                 </a>
-                <a href="#contact" class="px-8 py-3 rounded-lg border border-slate-700 text-white font-semibold hover:bg-slate-800 transition">
-                    Liên hệ với tôi
+                <a href="#about" class="px-6 py-3 rounded-lg border border-slate-700 text-white font-medium hover:bg-slate-800/50 transition">
+                    Xem giới thiệu
                 </a>
+            </div>
+        </div>
+
+        <!-- Cột phải: Terminal mạng tương tác ảo -->
+        <div class="lg:col-span-5 w-full" id="terminal-section" data-aos="fade-left">
+            <div class="bg-black/95 border border-slate-800 rounded-xl overflow-hidden shadow-2xl">
+                <!-- Thanh tiêu đề Terminal -->
+                <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex justify-between items-center">
+                    <div class="flex gap-1.5">
+                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    </div>
+                    <span class="text-xs text-slate-500 font-mono">duong@SON: ~ (sh)</span>
+                    <div class="w-6"></div>
+                </div>
+                <!-- Nội dung Terminal -->
+                <div class="p-4 font-mono text-xs md:text-sm h-72 overflow-y-auto space-y-2 text-cyan-400" id="terminal-body">
+                    <div class="text-slate-500">Gõ "help" và nhấn Enter để xem các lệnh có sẵn.</div>
+                    <div class="flex items-center gap-1">
+                        <span class="text-green-400">duong@SON:~$</span>
+                        <input type="text" id="terminal-input" class="bg-transparent border-none outline-none text-white w-full font-mono focus:ring-0 p-0" autofocus autocomplete="off">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 bg-brand-card/50 border-y border-slate-800/80 px-4">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-6">Về Lĩnh Vực Mạng Máy Tính</h2>
-                    <p class="text-slate-400 leading-relaxed mb-4">
-                        Mạng máy tính là "hệ thần kinh" của mọi tổ chức trong kỷ nguyên số. Việc hiểu rõ cách các gói tin di chuyển, cách định tuyến (Routing) tối ưu và ngăn chặn các mối đe dọa bảo mật là yếu tố sống còn để doanh nghiệp vận hành trơn tru.
-                    </p>
-                    <p class="text-slate-400 leading-relaxed">
-                        Tôi tập trung vào việc nghiên cứu kiến trúc mạng LAN/WAN, các giao thức định tuyến tĩnh và động, cũng như việc triển khai các ứng dụng thực tế trên môi trường Docker để tối ưu tài nguyên phần cứng.
-                    </p>
+    <section id="about" class="py-24 bg-brand-card/30 border-y border-slate-900/80 px-4">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-white mb-6">Tối Ưu Đường Truyền</h2>
+                <p class="text-slate-400 leading-relaxed mb-4">
+                    Một hệ thống mạng tốt không chỉ dựa trên phần cứng đắt tiền, mà nằm ở việc định tuyến dữ liệu khoa học, phân hoạch địa chỉ IP (Subnetting) thông minh để giảm thiểu nghẽn băng thông và tối ưu hiệu suất truyền tải.
+                </p>
+                <p class="text-slate-400 leading-relaxed">
+                    Với kinh nghiệm triển khai các dự án thực tế trên Linux và ảo hóa Docker, tôi luôn hướng tới việc tự động hóa hạ tầng (Infrastructure as Code) và thiết lập môi trường giám sát mạng liên tục.
+                </p>
+            </div>
+            <div class="space-y-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-cyan-500/30 transition">
+                    <h3 class="text-white font-bold mb-2"><i class="fa-solid fa-diagram-project text-brand-accent mr-2"></i>Thiết kế mạng LAN/WAN</h3>
+                    <p class="text-sm text-slate-400">Xây dựng kiến trúc phân lớp, tối ưu bảng định tuyến tĩnh và động.</p>
                 </div>
-                <div class="bg-brand-card border border-slate-700/50 p-8 rounded-2xl relative overflow-hidden">
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl"></div>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-cyan-500/10 text-brand-accent rounded-lg">
-                                <i class="fa-solid fa-server text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Thiết kế mạng thực tế</h4>
-                                <p class="text-sm text-slate-400">Phân hoạch mạng con (Subnetting), thiết kế mạng LAN nội bộ an toàn.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-cyan-500/10 text-brand-accent rounded-lg">
-                                <i class="fa-solid fa-shield-halved text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold mb-1">Bảo mật hệ thống</h4>
-                                <p class="text-sm text-slate-400">Cấu hình Firewall, phân quyền kiểm soát truy cập (Access Control List - ACL).</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="p-6 bg-slate-900/50 border border-slate-800/80 rounded-xl hover:border-cyan-500/30 transition">
+                    <h3 class="text-white font-bold mb-2"><i class="fa-brands fa-docker text-brand-accent mr-2"></i>Dockerization Services</h3>
+                    <p class="text-sm text-slate-400">Đóng gói và triển khai các ứng dụng mạng chạy cô lập và độc lập tài nguyên.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 px-4">
-        <div class="max-w-5xl mx-auto text-center mb-16">
-            <h2 class="text-3xl font-bold text-white mb-4">Môi Trường & Công Nghệ Sử Dụng</h2>
-            <p class="text-slate-400 max-w-xl mx-auto">Các công cụ và nền tảng tôi sử dụng để xây dựng và tự động hóa hệ thống.</p>
+    <!-- Skills Grid Section -->
+    <section id="skills" class="py-24 px-4 max-w-5xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-white mb-4">Hệ Sinh Thái Kỹ Năng</h2>
+            <p class="text-slate-400">Công nghệ cốt lõi tôi áp dụng để xây dựng hệ thống mạng và CI/CD tự động.</p>
         </div>
-        <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Skill 1 -->
-            <div class="bg-brand-card border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-brand-card border border-slate-800/80 p-6 rounded-xl hover:-translate-y-1 transition duration-300" data-aos="zoom-in">
                 <i class="fa-brands fa-docker text-4xl text-blue-400 mb-4"></i>
-                <h3 class="text-lg font-bold text-white mb-2">Docker & Containers</h3>
-                <p class="text-sm text-slate-400">Đóng gói ứng dụng, tối ưu hóa quá trình triển khai dịch vụ mạng trên môi trường ảo hóa nhẹ.</p>
+                <h3 class="text-lg font-bold text-white mb-2">Docker Compose</h3>
+                <p class="text-sm text-slate-400">Quản trị nhiều container đồng thời, thiết lập môi trường test cô lập mượt mà.</p>
             </div>
-            <!-- Skill 2 -->
-            <div class="bg-brand-card border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition">
-                <i class="fa-brands fa-github text-4xl text-slate-400 mb-4"></i>
-                <h3 class="text-lg font-bold text-white mb-2">GitHub CI/CD</h3>
-                <p class="text-sm text-slate-400">Tự động hóa quá trình kiểm thử, đóng gói và phát hành ứng dụng lên các nền tảng đám mây.</p>
+            <!-- Card 2 -->
+            <div class="bg-brand-card border border-slate-800/80 p-6 rounded-xl hover:-translate-y-1 transition duration-300" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fa-brands fa-github-alt text-4xl text-purple-400 mb-4"></i>
+                <h3 class="text-lg font-bold text-white mb-2">GitHub Actions</h3>
+                <p class="text-sm text-slate-400">Tự động kiểm thử và liên tục triển khai (CI/CD) ứng dụng lên môi trường live.</p>
             </div>
-            <!-- Skill 3 -->
-            <div class="bg-brand-card border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition">
-                <i class="fa-brands fa-linux text-4xl text-yellow-500 mb-4"></i>
-                <h3 class="text-lg font-bold text-white mb-2">Linux Administration</h3>
-                <p class="text-sm text-slate-400">Quản trị các dịch vụ mạng (DNS, DHCP, Web Server, SSH) trên hệ điều hành Ubuntu/Debian.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Basic Networking Concepts Section -->
-    <section id="concepts" class="py-24 bg-brand-card/30 border-t border-slate-800 px-4">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-white text-center mb-16">Mô Hình Tham Chiếu Mạng Cơ Bản</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Concept 1: OSI Model -->
-                <div class="bg-brand-card border border-slate-800/80 p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <span class="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
-                        Mô Hình 7 Lớp OSI
-                    </h3>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
-                            <span class="text-slate-400">Lớp 7 - Application</span>
-                            <span class="text-brand-accent font-medium">HTTP, DNS, FTP</span>
-                        </li>
-                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
-                            <span class="text-slate-400">Lớp 4 - Transport</span>
-                            <span class="text-cyan-400 font-medium">TCP, UDP</span>
-                        </li>
-                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
-                            <span class="text-slate-400">Lớp 3 - Network</span>
-                            <span class="text-blue-400 font-medium">IP (IPv4, IPv6), ICMP</span>
-                        </li>
-                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
-                            <span class="text-slate-400">Lớp 2 - Data Link</span>
-                            <span class="text-indigo-400 font-medium">Ethernet, MAC Address</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="text-slate-400">Lớp 1 - Physical</span>
-                            <span class="text-purple-400 font-medium">Cáp mạng, Sóng Wi-Fi</span>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Concept 2: Key protocols -->
-                <div class="bg-brand-card border border-slate-800/80 p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <span class="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
-                        Giao Thức Quan Trọng
-                    </h3>
-                    <div class="space-y-4">
-                        <div>
-                            <h4 class="text-white font-semibold text-sm mb-1">TCP (Transmission Control Protocol)</h4>
-                            <p class="text-xs text-slate-400">Giao thức hướng kết nối, đảm bảo dữ liệu truyền đi chính xác, đầy đủ và đúng thứ tự.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-semibold text-sm mb-1">IP Routing (Định tuyến IP)</h4>
-                            <p class="text-xs text-slate-400">Quy trình chọn đường đi tối ưu nhất cho gói tin đi qua các Router để đến được đích.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-white font-semibold text-sm mb-1">DNS (Domain Name System)</h4>
-                            <p class="text-xs text-slate-400">Dịch vụ phân giải tên miền (như github.com) thành địa chỉ IP để máy tính có thể hiểu được.</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Card 3 -->
+            <div class="bg-brand-card border border-slate-800/80 p-6 rounded-xl hover:-translate-y-1 transition duration-300" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fa-solid fa-shield-halved text-4xl text-cyan-400 mb-4"></i>
+                <h3 class="text-lg font-bold text-white mb-2">Network Security</h3>
+                <p class="text-sm text-slate-400">Quản lý Access Control List (ACL), thiết lập VPN bảo mật đường truyền.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-4 text-center">
-        <div cla
+        <div class="max-w-3xl mx-auto bg-gradient-to-b from-brand-card to-brand-dark border border-slate-800 rounded-3xl p-12 relative overflow-hidden" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-white mb-4">Bắt Đầu Một Kết Nối</h2>
+            <p class="text-slate-400 mb-8 max-w-md mx-auto">Nếu bạn cần tư vấn về hạ tầng mạng hoặc tự động hóa deployment, hãy gửi liên hệ.</p>
+            <div class="flex justify-center gap-6 text-2xl">
+                <a href="https://github.com/duongvanson243-netizen" target="_blank" class="text-slate-400 hover:text-white transition">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:sonduongvan243@gmail.com" class="text-slate-400 hover:text-brand-accent transition">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 py-8 text-center text-xs text-slate-500 bg-brand-dark">
+        <p>&copy; 2026 Dương Văn Sơn. Trang web tự động cập nhật qua GitHub Actions.</p>
+    </footer>
+
+    <!-- Animate On Scroll (AOS) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Khởi tạo hiệu ứng cuộn trang
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Script giả lập Terminal mạng tương tác
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalBody = document.getElementById('terminal-body');
+
+        // Bấm vào bất kỳ vùng nào của terminal cũng sẽ focus vào ô nhập liệu
+        document.getElementById('terminal-section').addEventListener('click', () => {
+            terminalInput.focus();
+        });
+
+        terminalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim().toLowerCase();
+                const userLine = document.createElement('div');
+                userLine.innerHTML = `<span class="text-green-400">duong@SON:~$</span> <span class="text-white">${this.value}</span>`;
+                
+                // Di chuyển ô nhập liệu xuống dưới cùng
+                const inputRow = terminalInput.parentElement;
+                terminalBody.insertBefore(userLine, inputRow);
+
+                const response = document.createElement('div');
+                response.className = 'text-slate-300';
+
+                // Xử lý các lệnh người dùng gõ
+                if (command === 'help') {
+                    response.innerHTML = `
+                        Các lệnh khả dụng:<br>
+                        - <span class="text-cyan-400">about</span>: Giới thiệu thông tin cơ bản.<br>
+                        - <span class="text-cyan-400">skills</span>: Xem thế mạnh công nghệ.<br>
+                        - <span class="text-cyan-400">ping 8.8.8.8</span>: Chạy mô phỏng kiểm tra gói tin mạng.<br>
+                        - <span class="text-cyan-400">clear</span>: Xóa màn hình terminal.
+                    `;
+                } else if (command === 'about') {
+                    response.innerHTML = "Tôi là Dương Văn Sơn, chuyên nghiên cứu và triển khai hạ tầng mạng máy tính, quản trị hệ thống Linux và tự động hóa deployment với GitHub Actions.";
+                } else if (command === 'skills') {
+                    response.innerHTML = "Kỹ năng chuyên môn: Docker, Docker Compose, Linux Administration, Network Routing & Switching, Git/GitHub CI/CD.";
+                } else if (command === 'ping 8.8.8.8') {
+                    response.innerHTML = `
+                        Pinging 8.8.8.8 with 32 bytes of data:<br>
+                        Reply from 8.8.8.8: bytes=32 time=4ms TTL=57<br>
+                        Reply from 8.8.8.8: bytes=32 time=5ms TTL=57<br>
+                        Reply from 8.8.8.8: bytes=32 time=4ms TTL=57<br>
+                        Ping statistics for 8.8.8.8: Packets: Sent = 3, Received = 3, Lost = 0 (0% loss).
+                    `;
+                } else if (command === 'clear') {
+                    // Xóa màn hình (giữ lại dòng nhập liệu)
+                    terminalBody.innerHTML = '';
+                    terminalBody.appendChild(inputRow);
+                    this.value = '';
+                    return;
+                } else if (command === '') {
+                    response.innerHTML = '';
+                } else {
+                    response.innerHTML = `sh: command not found: ${command}. Gõ "help" để xem trợ giúp.`;
+                }
+
+                terminalBody.insertBefore(response, inputRow);
+                this.value = '';
+                
+                // Tự động cuộn terminal xuống dòng mới nhất
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
