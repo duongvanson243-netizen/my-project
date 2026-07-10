@@ -1,1 +1,202 @@
-<h1>Website cua Duong Van Son da Online!</h1>
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dương Văn Sơn | Network & Systems Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', /* slate-900 */
+                            card: '#1e293b', /* slate-800 */
+                            accent: '#06b6d4', /* cyan-500 */
+                            text: '#f8fafc' /* slate-50 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-dark text-slate-300 font-sans antialiased">
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full bg-brand-dark/90 backdrop-blur-md border-b border-slate-800 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white tracking-wider flex items-center gap-2">
+                <i class="fa-solid fa-network-wired text-brand-accent"></i>
+                <span>DUONG VAN SON</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-brand-accent transition">Giới Thiệu</a>
+                <a href="#skills" class="hover:text-brand-accent transition">Công Nghệ & Kỹ Năng</a>
+                <a href="#concepts" class="hover:text-brand-accent transition">Kiến Thức Mạng</a>
+                <a href="#contact" class="hover:text-brand-accent transition">Liên Hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-brand-accent text-xs font-semibold mb-6 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                Hạ tầng mạng ổn định & Bảo mật
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
+                Thiết Kế & Tối Ưu Hóa <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                    Hạ Tầng Mạng Máy Tính
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Xin chào, tôi là Dương Văn Sơn. Trang web này chia sẻ về hành trình nghiên cứu, xây dựng hạ tầng kết nối an toàn, liên tục và tối ưu hóa hệ thống máy tính.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#skills" class="px-8 py-3 rounded-lg bg-cyan-500 text-slate-900 font-semibold hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">
+                    Khám phá công nghệ
+                </a>
+                <a href="#contact" class="px-8 py-3 rounded-lg border border-slate-700 text-white font-semibold hover:bg-slate-800 transition">
+                    Liên hệ với tôi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-brand-card/50 border-y border-slate-800/80 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Về Lĩnh Vực Mạng Máy Tính</h2>
+                    <p class="text-slate-400 leading-relaxed mb-4">
+                        Mạng máy tính là "hệ thần kinh" của mọi tổ chức trong kỷ nguyên số. Việc hiểu rõ cách các gói tin di chuyển, cách định tuyến (Routing) tối ưu và ngăn chặn các mối đe dọa bảo mật là yếu tố sống còn để doanh nghiệp vận hành trơn tru.
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        Tôi tập trung vào việc nghiên cứu kiến trúc mạng LAN/WAN, các giao thức định tuyến tĩnh và động, cũng như việc triển khai các ứng dụng thực tế trên môi trường Docker để tối ưu tài nguyên phần cứng.
+                    </p>
+                </div>
+                <div class="bg-brand-card border border-slate-700/50 p-8 rounded-2xl relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl"></div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-cyan-500/10 text-brand-accent rounded-lg">
+                                <i class="fa-solid fa-server text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Thiết kế mạng thực tế</h4>
+                                <p class="text-sm text-slate-400">Phân hoạch mạng con (Subnetting), thiết kế mạng LAN nội bộ an toàn.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-cyan-500/10 text-brand-accent rounded-lg">
+                                <i class="fa-solid fa-shield-halved text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Bảo mật hệ thống</h4>
+                                <p class="text-sm text-slate-400">Cấu hình Firewall, phân quyền kiểm soát truy cập (Access Control List - ACL).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-4">
+        <div class="max-w-5xl mx-auto text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-4">Môi Trường & Công Nghệ Sử Dụng</h2>
+            <p class="text-slate-400 max-w-xl mx-auto">Các công cụ và nền tảng tôi sử dụng để xây dựng và tự động hóa hệ thống.</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Skill 1 -->
+            <div class="bg-brand-card border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition">
+                <i class="fa-brands fa-docker text-4xl text-blue-400 mb-4"></i>
+                <h3 class="text-lg font-bold text-white mb-2">Docker & Containers</h3>
+                <p class="text-sm text-slate-400">Đóng gói ứng dụng, tối ưu hóa quá trình triển khai dịch vụ mạng trên môi trường ảo hóa nhẹ.</p>
+            </div>
+            <!-- Skill 2 -->
+            <div class="bg-brand-card border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition">
+                <i class="fa-brands fa-github text-4xl text-slate-400 mb-4"></i>
+                <h3 class="text-lg font-bold text-white mb-2">GitHub CI/CD</h3>
+                <p class="text-sm text-slate-400">Tự động hóa quá trình kiểm thử, đóng gói và phát hành ứng dụng lên các nền tảng đám mây.</p>
+            </div>
+            <!-- Skill 3 -->
+            <div class="bg-brand-card border border-slate-800 p-6 rounded-xl hover:border-slate-700 transition">
+                <i class="fa-brands fa-linux text-4xl text-yellow-500 mb-4"></i>
+                <h3 class="text-lg font-bold text-white mb-2">Linux Administration</h3>
+                <p class="text-sm text-slate-400">Quản trị các dịch vụ mạng (DNS, DHCP, Web Server, SSH) trên hệ điều hành Ubuntu/Debian.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Basic Networking Concepts Section -->
+    <section id="concepts" class="py-24 bg-brand-card/30 border-t border-slate-800 px-4">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-white text-center mb-16">Mô Hình Tham Chiếu Mạng Cơ Bản</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Concept 1: OSI Model -->
+                <div class="bg-brand-card border border-slate-800/80 p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
+                        Mô Hình 7 Lớp OSI
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
+                            <span class="text-slate-400">Lớp 7 - Application</span>
+                            <span class="text-brand-accent font-medium">HTTP, DNS, FTP</span>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
+                            <span class="text-slate-400">Lớp 4 - Transport</span>
+                            <span class="text-cyan-400 font-medium">TCP, UDP</span>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
+                            <span class="text-slate-400">Lớp 3 - Network</span>
+                            <span class="text-blue-400 font-medium">IP (IPv4, IPv6), ICMP</span>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-700/30 pb-2">
+                            <span class="text-slate-400">Lớp 2 - Data Link</span>
+                            <span class="text-indigo-400 font-medium">Ethernet, MAC Address</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-slate-400">Lớp 1 - Physical</span>
+                            <span class="text-purple-400 font-medium">Cáp mạng, Sóng Wi-Fi</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Concept 2: Key protocols -->
+                <div class="bg-brand-card border border-slate-800/80 p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span class="w-1.5 h-6 bg-cyan-500 rounded-full"></span>
+                        Giao Thức Quan Trọng
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-white font-semibold text-sm mb-1">TCP (Transmission Control Protocol)</h4>
+                            <p class="text-xs text-slate-400">Giao thức hướng kết nối, đảm bảo dữ liệu truyền đi chính xác, đầy đủ và đúng thứ tự.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm mb-1">IP Routing (Định tuyến IP)</h4>
+                            <p class="text-xs text-slate-400">Quy trình chọn đường đi tối ưu nhất cho gói tin đi qua các Router để đến được đích.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm mb-1">DNS (Domain Name System)</h4>
+                            <p class="text-xs text-slate-400">Dịch vụ phân giải tên miền (như github.com) thành địa chỉ IP để máy tính có thể hiểu được.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 text-center">
+        <div cla
