@@ -253,152 +253,24 @@
             }
         });
     </script>
-    <!-- ================= KHUNG CHATBOT NỔI (CHAT WIDGET) ================= -->
-    <!-- Nút tròn kích hoạt Chatbot ở góc dưới bên phải -->
-    <button id="chat-toggle" class="fixed bottom-6 right-6 z-50 p-4 bg-cyan-500 text-slate-900 rounded-full shadow-lg shadow-cyan-500/20 hover:scale-110 transition duration-300">
-        <i class="fa-solid fa-comments text-2xl animate-pulse" id="chat-icon"></i>
-    </button>
 
-    <!-- Hộp thoại khung Chatbot -->
-    <div id="chat-window" class="fixed bottom-24 right-6 z-50 w-80 md:w-96 h-[450px] bg-slate-950 border border-slate-800 rounded-2xl flex flex-col shadow-2xl hidden transition duration-300 transform scale-95 opacity-0">
-        <!-- Header của Chatbot -->
-        <div class="p-4 bg-slate-900 border-b border-slate-800/80 flex justify-between items-center rounded-t-2xl">
-            <div class="flex items-center gap-3">
-                <div class="relative">
-                    <div class="p-2 bg-cyan-500/10 text-cyan-400 rounded-lg">
-                        <i class="fa-solid fa-robot text-base"></i>
-                    </div>
-                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border border-slate-950"></span>
-                </div>
-                <div class="text-left">
-                    <h4 class="text-white font-bold text-xs tracking-wider">NETWORK ASSISTANT</h4>
-                    <p class="text-[9px] text-green-400 font-mono">System Active | AI Offline</p>
-                </div>
-            </div>
-            <button id="chat-close" class="text-slate-400 hover:text-white transition">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-        </div>
-
-        <!-- Vùng hiển thị tin nhắn -->
-        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs md:text-sm text-left">
-            <!-- Tin nhắn chào mừng mặc định của Robot -->
-            <div class="flex items-start gap-2 max-w-[85%]">
-                <div class="p-1.5 bg-slate-900 text-cyan-400 border border-slate-800 rounded-lg text-xs shrink-0">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <div class="p-3 bg-slate-900 border border-slate-800/60 text-slate-300 rounded-2xl rounded-tl-none leading-relaxed">
-                    Xin chào! Tôi là Trợ lý mạng ảo của anh Sơn. Bạn có câu hỏi nào về các chủ đề như: <strong>IP, Docker, DNS, Ping, OSI</strong> không? Hãy thử hỏi tôi nhé!
-                </div>
-            </div>
-        </div>
-
-        <!-- Ô nhập liệu gửi tin nhắn -->
-        <form id="chat-form" class="p-3 bg-slate-950 border-t border-slate-800/80 flex gap-2 rounded-b-2xl">
-            <input type="text" id="chat-input" placeholder="Hỏi tôi về Network/Docker..." class="flex-1 bg-slate-900 border border-slate-800 outline-none text-white text-xs rounded-lg px-3 focus:border-cyan-500/50 p-2" autocomplete="off">
-            <button type="submit" class="p-2 bg-cyan-500 text-slate-900 rounded-lg hover:bg-cyan-400 transition text-xs font-semibold px-4">
-                Gửi
-            </button>
-        </form>
-    </div>
-
-    <!-- Script xử lý logic Chatbot tương tác -->
-    <script>
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatWindow = document.getElementById('chat-window');
-        const chatClose = document.getElementById('chat-close');
-        const chatIcon = document.getElementById('chat-icon');
-
-        // Bấm nút tròn để mở/đóng khung chat
-        chatToggle.addEventListener('click', () => {
-            if (chatWindow.classList.contains('hidden')) {
-                chatWindow.classList.remove('hidden');
-                setTimeout(() => {
-                    chatWindow.classList.remove('scale-95', 'opacity-0');
-                    chatWindow.classList.add('scale-100', 'opacity-100');
-                }, 10);
-                chatIcon.className = 'fa-solid fa-chevron-down text-2xl';
-            } else {
-                closeChat();
-            }
-        });
-
-        chatClose.addEventListener('click', closeChat);
-
-        function closeChat() {
-            chatWindow.classList.remove('scale-100', 'opacity-100');
-            chatWindow.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                chatWindow.classList.add('hidden');
-            }, 300);
-            chatIcon.className = 'fa-solid fa-comments text-2xl';
-        }
-
-        const chatForm = document.getElementById('chat-form');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
-
-        // Bộ câu trả lời mẫu cho các câu hỏi thông dụng
-        const qaDatabase = {
-            "hello": "Xin chào! Bạn cần tôi trợ giúp gì về hạ tầng mạng máy tính và hệ thống không?",
-            "hi": "Xin chào! Bạn cần tôi trợ giúp gì về hạ tầng mạng máy tính và hệ thống không?",
-            "ip": "Địa chỉ IP (Internet Protocol) là địa chỉ định danh cho từng thiết bị trong mạng mạng máy tính (Ví dụ: 192.168.1.1). Nó giống như địa chỉ nhà giúp các thiết bị định tuyến và tìm thấy nhau.",
-            "docker": "Docker là công nghệ ảo hóa dạng Container. Nó giúp đóng gói ứng dụng kèm theo mọi thư viện cần thiết để chạy đồng nhất trên bất kỳ hệ điều hành nào mà không lo xung đột phần mềm.",
-            "dns": "DNS (Domain Name System) hoạt động như một 'danh bạ điện thoại' của Internet. Nó giúp dịch các tên miền dễ nhớ (như google.com) thành địa chỉ IP số của máy chủ để máy tính hiểu được.",
-            "ping": "Ping là công cụ dòng lệnh sử dụng giao thức ICMP để kiểm tra xem một máy chủ có đang kết nối thông suốt hay không và đo lường độ trễ (latency) của đường truyền mạng.",
-            "osi": "Mô hình OSI gồm 7 lớp: Vật lý (Physical), Liên kết dữ liệu (Data Link), Mạng (Network), Giao vận (Transport), Phiên (Session), Trình diễn (Presentation), Ứng dụng (Application)."
-        };
-
-        chatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const userMsg = chatInput.value.trim();
-            if (!userMsg) return;
-
-            // Hiển thị tin nhắn của người dùng
-            appendMessage(userMsg, 'user');
-            chatInput.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            // Chờ 0.8 giây tạo hiệu ứng đang phân tích câu hỏi
-            setTimeout(() => {
-                let botReply = "Tôi là robot chuyên sâu về mạng của anh Sơn. Câu hỏi này tôi đang cập nhật dữ liệu, bạn có thể hỏi các từ khóa như: 'IP', 'Docker', 'DNS', 'Ping', 'OSI' nhé!";
-                
-                // Quét từ khóa trong câu hỏi
-                const normalizedQuery = userMsg.toLowerCase();
-                for (const key in qaDatabase) {
-                    if (normalizedQuery.includes(key)) {
-                        botReply = qaDatabase[key];
-                        break;
-                    }
-                }
-                appendMessage(botReply, 'bot');
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 800);
-        });
-
-        // Hàm tạo phần tử tin nhắn mới
-        function appendMessage(text, sender) {
-            const msgRow = document.createElement('div');
-            msgRow.className = sender === 'user' ? 'flex justify-end' : 'flex items-start gap-2 max-w-[85%]';
-            
-            if (sender === 'user') {
-                msgRow.innerHTML = `
-                    <div class="p-3 bg-cyan-500 text-slate-900 rounded-2xl rounded-tr-none leading-relaxed max-w-[85%] font-medium">
-                        ${text}
-                    </div>
-                `;
-            } else {
-                msgRow.innerHTML = `
-                    <div class="p-1.5 bg-slate-900 text-cyan-400 border border-slate-800 rounded-lg text-xs shrink-0">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <div class="p-3 bg-slate-900 border border-slate-800/60 text-slate-300 rounded-2xl rounded-tl-none leading-relaxed">
-                        ${text}
-                    </div>
-                `;
-            }
-            chatMessages.appendChild(msgRow);
-        }
-    </script>
+<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+<script>
+  new CozeWebSDK.WebChatClient({
+    config: {
+      bot_id: '7660798735857205253',
+    },
+    componentProps: {
+      title: 'Coze',
+    },
+    auth: {
+      type: 'token',
+      token: 'pat_********',
+      onRefreshToken: function () {
+        return 'pat_********'
+      }
+    }
+  });
+</script>
 </body>
 </html>
