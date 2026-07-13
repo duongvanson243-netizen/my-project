@@ -15,3 +15,18 @@ $ ssh -T git@github.com
 Enter passphrase for key '/c/Users/duong/.ssh/id_ed25519':
 Hi duongvanson243-netizen! You've successfully authenticated, but GitHub does not provide shell access.
 
+Hướng 1: Nếu bạn chỉ muốn kéo code mới từ GitHub về máy
+code
+Bash
+
+git pull origin main
+
+Hướng 2: Nếu bạn muốn lưu luôn 2 thư mục mới này lên GitHub để lưu trữ
+code
+Bash
+
+git add .
+
+git commit -m "Thêm thư mục AI-DVS và tài liệu câu lệnh git"
+
+git push origin main
