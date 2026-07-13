@@ -1,0 +1,17 @@
+duong@SON MINGW64 ~/my-project (main)
+$ git remote set-url origin git@github.com:duongvanson243-netizen/my-project.git
+
+duong@SON MINGW64 ~/my-project (main)
+$ git remote -v
+origin  git@github.com:duongvanson243-netizen/my-project.git (fetch)
+origin  git@github.com:duongvanson243-netizen/my-project.git (push)
+
+duong@SON MINGW64 ~
+$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPyMoAHzTqO4RRYwQ3xP6g5OTF8j6lv1p/1HEs3vI8uQ duongvanson243@gmail.com
+
+duong@SON MINGW64 ~
+$ ssh -T git@github.com
+Enter passphrase for key '/c/Users/duong/.ssh/id_ed25519':
+Hi duongvanson243-netizen! You've successfully authenticated, but GitHub does not provide shell access.
+
